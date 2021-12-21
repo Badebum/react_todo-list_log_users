@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
-import TodoList from '../components/TodoList';
-import TodoEditor from '../components/TodoEditor';
-import Filter from '../components/Filter/Filter';
-import styles from './AppMain.module.css';
-import Modal from '../components/Modal';
-import IconButton from '../components/IconButton';
-import { ReactComponent as Cross } from '../icons/close.svg';
-import Statistic from '../components/Statistic/Statistic';
+import TodoList from '../../components/TodoList';
+import TodoEditor from '../../components/TodoEditor';
+import Filter from '../../components/Filter/Filter';
+import styles from './TodosView.module.css';
+import Modal from '../../components/Modal';
+import IconButton from '../../components/IconButton';
+import { ReactComponent as Cross } from '../../icons/close.svg';
+import Statistic from '../../components/Statistic/Statistic';
 import { connect } from 'react-redux';
-import { fetchTodos } from '../redux/todos/todos.oparations';
-import { getLoading } from '../redux/todos/todos-selector';
+import { fetchTodos } from '../../redux/todos/todos.oparations';
+import { getLoading } from '../../redux/todos/todos-selector';
 
 class AppBar extends Component {
   state = {

@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import * as authOperations from '../../redux/auth/auth-operations';
+import PropTypes from 'prop-types';
 
 const styles = {
   form: {
@@ -24,7 +27,9 @@ class LoginView extends Component {
   handleSubmit = e => {
     e.preventDefault();
 
-    this.setState({ name: '', email: '', password: '' });
+    this.props.onLogin(this.state);
+
+    this.setState({ email: '', password: '' });
   };
 
   render() {
@@ -48,12 +53,7 @@ class LoginView extends Component {
               onChange={this.handleChange}
             />
           </label>
-        </form>
-        <form
-          onSubmit={this.handleSubmit}
-          style={styles.form}
-          autoComplete="off"
-        >
+
           <label style={styles.label}>
             Пароль
             <input
@@ -63,10 +63,19 @@ class LoginView extends Component {
               onChange={this.handleChange}
             />
           </label>
+          <button type="submit">Войти</button>
         </form>
       </div>
     );
   }
 }
 
-export default LoginView;
+LoginView.propTypes = {
+  onLogin: PropTypes.func.isRequired,
+};
+
+const mapDispatchToProps = {
+  onLogin: authOperations.logIn,
+};
+
+export default connect(null, mapDispatchToProps)(LoginView);
