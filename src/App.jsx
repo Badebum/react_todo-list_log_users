@@ -1,5 +1,4 @@
 import React, { Component, lazy, Suspense } from 'react';
-// import AppMain from './views/AppMain';
 import AppBar from './UserMenu/AppBar';
 import { Switch, Route } from 'react-router-dom';
 import * as authOperations from './redux/auth/auth-operations';
